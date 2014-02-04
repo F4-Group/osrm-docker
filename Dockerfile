@@ -8,9 +8,9 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y build-essential git cmake 
     libzip-dev libboost-all-dev lua5.1 liblua5.1-0-dev libluabind-dev libluajit-5.1-dev
 
 RUN git clone git://github.com/DennisOSRM/Project-OSRM.git
-WORKDIR Project-OSRM
+WORKDIR /Project-OSRM
 RUN mkdir -p build
-WORKDIR build
+WORKDIR /Project-OSRM/build
 RUN cmake ..
 RUN make
 RUN ln -s ../profiles/car.lua profile.lua
