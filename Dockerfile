@@ -17,6 +17,7 @@ RUN ln -s ../profiles/car.lua profile.lua
 RUN ln -s ../profiles/lib/
 
 #download pdf file
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y wget
 RUN wget http://download.geofabrik.de/europe/france-latest.osm.pbf -O map.osm.pbf
 RUN ./osrm-extract map.osm.pbf
 RUN ./osrm-prepare map.osrm
