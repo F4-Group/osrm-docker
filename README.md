@@ -1,5 +1,5 @@
 osrm-docker
 ===========
-Penser a ajouter 
--s devicemapper
-dans les options docker dans /etc/init.d/docker 
+Requires  
+    -s devicemapper
+to be added to docker deamon options (usually in /etc/init.d/docker )  
