@@ -4,4 +4,4 @@ Requires
 
     -s devicemapper
 
-to be added to docker deamon options (usually in /etc/init.d/docker )  
+to be added to docker deamon options (for Ubuntu, usually in /etc/default/docker )  
