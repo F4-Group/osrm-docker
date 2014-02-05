@@ -1,4 +1,5 @@
 FROM stackbrew/ubuntu:saucy
+MAINTAINER F4
 
 RUN apt-get update
 
@@ -15,9 +16,10 @@ RUN cmake /src
 RUN make
 RUN ln -s /src/profiles/car.lua profile.lua
 RUN ln -s /src/profiles/lib/
-RUN wget -nv http://download.geofabrik.de/europe/france-latest.osm.pbf -O /data/map.osm.pbf
+ADD http://download.geofabrik.de/europe/france-latest.osm.pbf /data/map.osm.pbf
 RUN ./osrm-extract /data/map.osm.pbf
 RUN ./osrm-prepare map.osrm
 
 EXPOSE 5000
+#CMD ["http://download.geofabrik.de/europe/france-latest.osm.pbf"]
 ENTRYPOINT ["/build/osrm-routed"]
