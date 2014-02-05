@@ -21,7 +21,7 @@ RUN ln -s /src/profiles/lib/
 #RUN wget -nv http://download.geofabrik.de/europe/france-latest.osm.pbf -O /data/map.osm.pbf
 #RUN wget -nv http://download.geofabrik.de/europe/france/ile-de-france-latest.osm.pbf -O /data/map.osm.pbf
 RUN wget -nv http://download.geofabrik.de/europe/france/corse-latest.osm.pbf -O /data/map.osm.pbf
-#RUN echo "disk=/tmp/stxxl,10000,syscall" > .stxxl
+RUN echo "disk=/tmp/stxxl,10000,mmap" > .stxxl
 RUN ./osrm-extract /data/map.osm.pbf
 RUN ./osrm-prepare map.osrm
 
