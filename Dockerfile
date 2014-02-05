@@ -16,7 +16,9 @@ RUN cmake /src
 RUN make
 RUN ln -s /src/profiles/car.lua profile.lua
 RUN ln -s /src/profiles/lib/
-ADD http://download.geofabrik.de/europe/france-latest.osm.pbf /data/map.osm.pbf
+#ADD http://download.geofabrik.de/europe/france-latest.osm.pbf /data/map.osm.pbf
+#using wget instead of add to allow docker cache to work.
+RUN wget -nv http://download.geofabrik.de/europe/france-latest.osm.pbf -O /data/map.osm.pbf
 RUN echo "disk=/tmp/stxxl,10000,syscall" > .stxxl
 RUN ./osrm-extract /data/map.osm.pbf
 RUN ./osrm-prepare map.osrm
