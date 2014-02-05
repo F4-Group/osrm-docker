@@ -17,6 +17,7 @@ RUN make
 RUN ln -s /src/profiles/car.lua profile.lua
 RUN ln -s /src/profiles/lib/
 ADD http://download.geofabrik.de/europe/france-latest.osm.pbf /data/map.osm.pbf
+RUN echo "disk=/tmp/stxxl,25000,syscall" > .stxxl
 RUN ./osrm-extract /data/map.osm.pbf
 RUN ./osrm-prepare map.osrm
 
