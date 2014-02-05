@@ -1,5 +1,5 @@
 FROM stackbrew/ubuntu:saucy
-MAINTAINER F4
+MAINTAINER F4 <dev@f4-group.com>
 
 RUN apt-get update
 
